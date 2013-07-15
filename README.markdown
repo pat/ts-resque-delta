@@ -56,12 +56,12 @@ running Resque:
     QUEUE=ts_delta,other_queues rake resque:work
 
 Additionally, ts-resque-delta will wrap thinking-sphinx's
-`thinking_sphinx:index` and `thinking_sphinx:reindex` tasks with
-`thinking_sphinx:lock_deltas` and `thinking_sphinx:unlock_deltas`. This will
+`ts:index` with
+`ts:lock_deltas` and `ts:unlock_deltas`. This will
 prevent the delta indexer from running at the same time as the main indexer.
 
 Finally, ts-resque-delta also provides a rake task called
-`thinking_sphinx:smart_index` (or `ts:si` for short). This task, instead of
+`ts:smart_index` (or `ts:si` for short). This task, instead of
 locking all the delta indexes at once while the main indexer runs, will lock
 each delta index independently and sequentially. Thay way, your delta indexer
 can run while the main indexer is processing large core indexes.
